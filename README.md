@@ -46,7 +46,7 @@ $\beta_T$: Target beta (e.g., 0 or 1)
 
 ## Backtesting Results
 
-<img src="./src_img/raw_backtest.png" width="700" height="500">
+<img src="./src_img/raw_backtest.png" width="700" height="450">
 
 | Metric                 | BETA_0_120 | BETA_1_120 | BETA_0_90 | BETA_1_90 | BETA_0_60 | BETA_1_60 | BETA_0_30 | BETA_1_30 | SPY      |
 |------------------------|------------|------------|-----------|-----------|-----------|-----------|-----------|-----------|----------|
