@@ -1,7 +1,7 @@
 # Global Macro Long/Short Strategy with Target Beta
 This project implements and analyzes a Global Macro Long/Short strategy based on portfolio optimization with a target beta. The strategy aims to understand the impact of different target betas and the length of the look-back period used for estimating the covariance matrix and expected returns on the portfolio's performance and risk characteristics.
 
-<img src="./src_img/Global_Macro_img.jpeg" width="600" height="400">
+<img src="./src_img/Global_Macro_img.jpeg" width="500" height="300">
 *Image source: [https://www.fitchsolutions.com/bmi/long-reads/macroeconomic-insight/global-macro-outlook-global-growth-slowing-faster-we-expected]*
 
 ## Investment Strategy
