@@ -10,9 +10,24 @@ The optimization problem is set up with an objective function that minimizes ris
 The strategy is backtested over the period from March 2017 to February 2024, with weekly rebalancing. Four different look-back periods (30, 60, 90 and 120 data points) are used to estimate the covariance matrix and expected returns, and two target beta values (0 and 1) are considered. This results in a total of six scenarios to be analyzed.
 
 Optimize a portfolio using the following structure:
-- Objective: Minimize quadratic function \( \frac{1}{2} \omega^T \Sigma \omega - \rho^T \omega \)
-- Constraints: \( \beta_p^T \omega = \beta_T \) and \( \sum_{i=1}^{n} \omega_i = 1 \), with \( -0.5 \leq \omega_i \leq 0.5 \)
-- Inputs:
+
+- **Objective**: Minimize quadratic function 
+  $$
+  \frac{1}{2} \omega^T \Sigma \omega - \rho^T \omega
+  $$
+
+- **Constraints**: 
+  $$
+  \beta_p^T \omega = \beta_T
+  $$
+  $$
+  \sum_{i=1}^{n} \omega_i = 1
+  $$
+  $$
+  -0.5 \leq \omega_i \leq 0.5
+  $$
+
+- **Inputs**:
   - \( \Sigma \): Sample covariance matrix of returns
   - \( \rho \): Vector of expected returns
   - \( \beta_p \): Portfolio beta relative to S&P 500 (SPY ETF)
