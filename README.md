@@ -3,34 +3,7 @@ This project implements and analyzes a Global Macro Long/Short strategy based on
 
 ## Investment Strategy
 
-The strategy optimizes a portfolio of 12 ETFs, representing various asset classes and geographies, using a quadratic solver in Python.
-
-The optimization problem is set up with an objective function that minimizes risk while targeting a specific portfolio beta. The portfolio is subject to holding constraints, limiting the weight of each asset between -0.5 and 0.5.
-
-The strategy is backtested over the period from March 2017 to February 2024, with weekly rebalancing. Four different look-back periods (30, 60, 90 and 120 data points) are used to estimate the covariance matrix and expected returns, and two target beta values (0 and 1) are considered. This results in a total of six scenarios to be analyzed.
-
-Optimize a portfolio using the following structure:
-Objective: Minimize quadratic function $\frac{1}{2} \omega^T \Sigma \omega - \rho^T \omega$
-Constraints: $\beta_p^T \omega = \beta_T$ and $\sum_{i=1}^{n} \omega_i = 1$, with $-0.5 \leq \omega_i \leq 0.5$
-Inputs:
-
-$\Sigma$: Sample covariance matrix of returns
-$\rho$: Vector of expected returns
-$\beta_p$: Portfolio beta relative to S&P 500 (SPY ETF)
-$\beta_T$: Target beta (e.g., 0 or 1)
-
-## Assumptions and Analysis Setup
-
-1. **Weekly Rebalancing**: Portfolio is re-optimized every week from March 2017 to February 2024.
-2. **Look-back Periods**:
-   - Long-Term: 120 data points
-   - Medium-Term: 90 data points
-   - Medium-Short Term: 60 data points
-   - Short-Term: 30 data points
-3. **Target Beta Values**: 0 and 1
-
-## Data and Tools
-The strategy uses historical data for 12 ETFs, downloaded from Yahoo Finance using Python. The daily returns are calculated and annualized for the analysis. The optimization problem is solved using the CVXOPT quadratic solver in Python.
+The strategy optimizes a portfolio of 12 ETFs, representing various asset classes and geographies, which are:
 
 1. CurrencyShares Euro Trust (FXE)
 2. iShares MSCI Japan Index (EWJ)
@@ -44,6 +17,31 @@ The strategy uses historical data for 12 ETFs, downloaded from Yahoo Finance usi
 10. iShares S&P Latin America 40 Index (ILF)
 11. iShares MSCI Pacific ex-Japan Index Fund (EPP)
 12. SPDR DJ Euro Stoxx 50 (FEZ)
+
+The optimization problem is set up with an objective function that minimizes risk while targeting a specific portfolio beta. The portfolio is subject to holding constraints, limiting the weight of each asset between -0.5 and 0.5.
+
+The strategy is backtested over the period from March 2017 to February 2024, with weekly rebalancing. Four different look-back periods (30, 60, 90 and 120 data points) are used to estimate the covariance matrix and expected returns, and two target beta values (0 and 1) are considered. 
+
+## Optimization Settings
+Optimize a portfolio using the following structure:\
+Objective: Minimize quadratic function $\frac{1}{2} \omega^T \Sigma \omega - \rho^T \omega$\
+Constraints: $\beta_p^T \omega = \beta_T$ and $\sum_{i=1}^{n} \omega_i = 1$, with $-0.5 \leq \omega_i \leq 0.5$\
+Inputs:\
+
+$\Sigma$: Sample covariance matrix of returns\
+$\rho$: Vector of expected returns\
+$\beta_p$: Portfolio beta relative to S&P 500 (SPY ETF)\
+$\beta_T$: Target beta (e.g., 0 or 1)
+
+## Strategy Settings
+
+1. **Weekly Rebalancing**: Portfolio is re-optimized every week from March 2017 to February 2024.
+2. **Look-back Periods**:
+   - Long-Term: 120 data points
+   - Medium-Term: 90 data points
+   - Medium-Short Term: 60 data points
+   - Short-Term: 30 data points
+3. **Target Beta Values**: 0 and 1
 
 
 ## Backtesting Results
